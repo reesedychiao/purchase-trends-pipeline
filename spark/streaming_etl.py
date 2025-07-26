@@ -33,6 +33,7 @@ query = processed_df\
     .writeStream\
     .outputMode("append")\
     .format("console")\
+    .trigger(processingTime="15 seconds")\
     .start()
 
 query.awaitTermination()
